@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Notes Preparation</title>
+    <meta name="description" content="A Voice Note App that allows you to take voice and/or text notes and play them back.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/static/assets/ico/favicon.ico">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="/static/assets/css/style.css">
+    <!-- Bootstrap CDN CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-0Mou2qXGeXK7k/Ue/a1hspEVcEP2zCpoQZw8/MPeUgISww+VmDJcy2ri9tX0a6iy" crossorigin="anonymous">
+
+    <style>
+		.print-animation span {
+			display: inline-block;
+			animation: print-animation 1s ease-in-out forwards;
+		}
+
+		@keyframes print-animation {
+			from {
+				opacity: 0;
+				transform: translateY(-10px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+	</style>
+</head>
+
+<body>
+<header>
+         <div style="background-color: darkblue; color: white; padding: 10px;">
+             <h1 style="color: white"><b>EASY LEARN</b></h1>
+         </div>
+     </header>
+     <br>
+     <br>
+
+        <center>
+  <div>
+      <p style="color: mediumvioletred">
+          <b>By uploading voice, you can generate:</b>
+      </p>
+  </div>
+  <div class="print-animation">
+		<span style="color: deeppink">Keyword extraction and display contents from Wikipedia</span><br>
+		<span style="color: deeppink">Text summarization</span><br>
+		<span style="color: deeppink">Question and answer generation</span>
+	</div>
+  </center>
+
+    <div class="container-fluid align-center">
+<center>
+{#        <h1>Upload Voice</h1>#}
+{#        <p class="page-description">This website allows you to take voice and/or text notes and prepare notes them back.</p>#}
+        <hr>
+        <div class="app">
+            <div class="row">
+
+                <div class="col-md-12 align-center">
+                    <br><br><br>
+                    <h3>Add Voice Note</h3>
+
+                    <button id="start-record-btn" class="btn-success" title="Start Recording">Start Recognition</button>
+                    <button id="pause-record-btn" class="btn-warning" title="Pause Recording">Pause Recognition</button>
+                    <br>
+                    <br>
+{#                    <button id="save-note-btn" class="btn-info" title="Save Note">Save Note</button>#}
+<form action="/myapp/extractedtext1/" method="post">
+    {% csrf_token %}
+     <div class="input-single">
+
+                        <textarea  id="note-textarea"  name="textarea" placeholder="Create a new note by using voice recognition." rows="6"></textarea>
+
+                    </div>
+
+    <button  class="btn-info" title="Submit" value="Submit Recognition" >Submit Recognition</button>
+                    <p id="recording-instructions">Press the
+                        <strong>Start Recognition</strong> button and allow access.</p>
+    <br>
+{#        <a href="/myapp/keywordandwiki1/">KEYWORD EXTRACTION AND WIKI CONTENT EXTRACTION</a><br>#}
+{#        <a href="/myapp/summary1/">TEXT SUMMARIZATION</a><br>#}
+{#        <a href="qa1.html/">QUESTION AND ANSWER GENERATION</a>#}
+</form>
+                </div>
+            </div>
+
+
+{#            <div class="row">#}
+{#                 <div class="col-md-12 align-center">#}
+{#                     <p>Extracted Keywords</p>#}
+{#                     <table class="table table-bordered">#}
+{#                         <tr>#}
+{#                             <td>#</td>#}
+{#                             <td>Word</td>#}
+{#                             <td>Score</td>#}
+{#                         </tr>#}
+{##}
+{#                         {% for i in range(length) %}#}
+{#                             {% if loop.index <6 %}#}
+{#                             <tr>#}
+{#                             <td>{{ loop.index }}</td>#}
+{#                             <td>{{ word[i] }}</td>#}
+{#                             <td>{{ score[i] }}</td>#}
+{#                             </tr>#}
+{#                             {% endif %}#}
+{#                         {% endfor %}#}
+{#                     </table>#}
+{#                 </div>#}
+{#            </div>#}
+
+{#          <div class="row">#}
+{#                 <div class="col-md-12 align-center">#}
+{#                     <p>Extracted Wikipedia contents of the keywords</p>#}
+{#                     <table class="table table-bordered">#}
+{#                         <tr>#}
+{#                             <td>#</td>#}
+{#                             <td>Word</td>#}
+{#                             <td>Content</td>#}
+{#                         </tr>#}
+{##}
+{#                         {% for i in range(length2) %}#}
+{#                             {% if loop.index <6 %}#}
+{#                             <tr>#}
+{#                             <td>{{ loop.index }}</td>#}
+{#                             <td>{{ final_word[i] }}</td>#}
+{#                             <td>{{ summary[i] }}</td>#}
+{#                             </tr>#}
+{#                             {% endif %}#}
+{#                         {% endfor %}#}
+{#                     </table>#}
+{#                 </div>#}
+{#            </div>#}
+            <!-- /row -->
+        </div>
+        <!-- /app -->
+    </center>
+    </div>
+
+{#    <div id="footer">#}
+{#        <div class="clearfix1">#}
+{#            <div class="container">#}
+{#                <div class="row">#}
+{##}
+{#                    <div class="center">#}
+{#                        <p>Speech to Text Voice Note preparation</p>#}
+{#                    </div>#}
+{##}
+{#                </div>#}
+{#                <!-- /row -->#}
+{#            </div>#}
+{#            <!-- /container -->#}
+{#        </div>#}
+{#    </div>#}
+
+{#<div class="row">#}
+{#    <div class="col-md-12 align-center">#}
+{#                     <p>Question and Answers </p>#}
+{#                     <table class="table table-bordered">#}
+{#        <tr>#}
+{#            <td> Sl.no</td>#}
+{#            <td>Question</td>#}
+{#            <td> Answers</td>#}
+{#        </tr>#}
+{#        {% for i in qa %}#}
+{#        <tr>#}
+{#            <td>{{ loop.index }} </td>#}
+{#            <td>{{ i['question'] }} </td>#}
+{#            <td>{{ i['answer'] }} </td>#}
+{#        </tr>#}
+{#        {% endfor %}#}
+{#    </table>#}
+{#    </div>#}
+{#</div>#}
+
+{##}
+{#<div class="row">#}
+{#    <div class="col-md-12 align-center">#}
+{#                     <p>Summary </p>#}
+{#        <p>{{ summ }}</p>#}
+{#    </div>#}
+{#</div>#}
+    <!-- /footer -->
+</form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/static/assets/js/script.js"></script>
+
+</body>
+
+</html>
