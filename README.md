@@ -1,2 +1,2 @@
 # EASY LEARN
-The natural language system
+The Natural Language Processing System
