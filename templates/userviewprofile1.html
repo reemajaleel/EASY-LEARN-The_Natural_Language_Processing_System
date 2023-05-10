@@ -1,0 +1,131 @@
+{#<!doctype html>#}
+<html lang="en">
+  <head>
+  	<title>Profile</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="/static/viewregusers/css/style.css">
+      <style>
+		/* Add some styling to make the page look nicer */
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f2f2f2;
+		}
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0 0 10px rgba(0,0,0,0.2);
+			border-radius: 5px;
+		}
+		h1 {
+			font-size: 24px;
+			margin-bottom: 20px;
+		}
+		form {
+			display: inline-block;
+			margin-top: 10px;
+		}
+		label {
+			display: block;
+			margin-bottom: 5px;
+			font-weight: bold;
+		}
+		input[type="text"], input[type="email"], input[type="tel"], input[type="date"] {
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			box-sizing: border-box;
+			margin-bottom: 10px;
+		}
+		button {
+			background-color: darkblue;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 3px;
+			cursor: pointer;
+			font-size: 16px;
+		}
+		button:hover {
+			background-color: #3e8e41;
+		}
+	</style>
+
+	</head>
+	<body>
+    <header>
+    <div style="background-color: darkblue; color: white; padding: 10px;">
+        <h1 style="color: white; display: flex; justify-content: space-between; align-items: center;">
+            <b>EASY LEARN</b>
+            <a href="/myapp/home/" style="color: white; text-decoration: none;">
+                <button style="background-color: white; padding: 5px 10px; font-size: 12px; color: blue" class="btn btn-primary"><b>Logout</b></button>
+            </a>
+        </h1>
+    </div>
+</header>
+
+    <center>
+	<table>
+{#    <tr>#}
+{#        <th colspan="2" align="center"><h3><center><b>PROFILE</b></center></h3></th>#}
+{#    </tr>#}
+    </table>
+        <table>
+        <tr>
+            <td></td><div align="right">
+{#                <a href="/myapp/editprofile/"><u>EDIT PROFILE</u></a>#}
+            </div></tr></table>
+        <table class="table table-striped">
+    <tr>
+        <th colspan="2"><h4><center>Hi, {{ data.fname }}</center></h4></th>
+    </tr>
+
+    <tr>
+        <th><center>First Name:</center></th>
+        <th><center><input type="text" id="last_name" name="last_name" value="{{ data.fname }}" readonly></center></th>
+    </tr>
+    <tr>
+        <th><center>Last Name:</center></th>
+        <td><center><input type="text" id="last_name" name="last_name" value="{{ data.lname }}" readonly></center></td>
+    </tr>
+    <tr>
+        <th><center>Date of Birth:</center></th>
+        <td><center><input type="date" id="date_of_birth" name="date_of_birth" value="{{ data.dob }}" readonly></center></td>
+    </tr>
+    <tr>
+        <th><center>Email:</center></th>
+        <td><center><input type="email" id="email" name="email" value="{{ data.email }}" readonly></center></td>
+    </tr>
+    <tr>
+        <th><center>Phone: </center></th>
+        <td><center><input type="tel" id="phone_number" name="phone_number" value="{{ data.phone }}" readonly></center></td>
+    </tr>
+
+
+
+</table>
+        <button onclick="location.href='/myapp/editprofile/'">Edit Profile</button>
+        <table>
+        <tr>
+        <td>
+            </table>
+
+</center>
+	<script src="/static/viewregusers/js/jquery.min.js"></script>
+  <script src="/static/viewregusers/js/popper.js"></script>
+  <script src="/static/viewregusers/js/bootstrap.min.js"></script>
+  <script src="/static/viewregusers/js/main.js"></script>
+
+	</body>
+</html>
+
