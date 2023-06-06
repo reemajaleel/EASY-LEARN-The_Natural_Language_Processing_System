@@ -1,0 +1,83 @@
+{#<!doctype html>#}
+<html lang="en">
+  <head>
+  	<title>Question and answer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="/static/viewregusers/css/style.css">
+
+	</head>
+  <body>
+  <header>
+    <div style="background-color: darkblue; color: white; padding: 10px;">
+        <h1 style="color: white; display: flex; justify-content: space-between; align-items: center;">
+            <b>EASY LEARN</b>
+            <a href="/myapp/home/" style="color: white; text-decoration: none;">
+                <button style="background-color: white; padding: 5px 10px; font-size: 12px; color: blue" class="btn btn-primary"><b>Logout</b></button>
+            </a>
+        </h1>
+    </div>
+</header>
+  <center>
+      <table>
+  <tr>
+          <td style="color: blue"><b><u>Question and Answer</u></b></td><br>
+  </tr>
+     </table>
+  </center>
+  <center>
+{#      <h3><b>EXTRACTED TEXT</b></h3>#}
+      <br>
+
+    <form action="/submit-text" method="post">
+        <div class="table-wrap" style="height: 500px; overflow-y: scroll;">
+      <table class="table table-striped">
+
+        {% for i in d %}
+        <tr>
+            <td><strong>Question:</strong><center>{{ i.question }}</center></td>
+        </tr>
+        <tr>
+            <td><strong>Answer:</strong><center>{{ i.answer }}</center></td>
+        </tr>
+        {% endfor %}
+
+      </table>
+        </div>
+
+    </form>
+<div class="text-center">
+ <form action="/myapp/generatepdf/" method="post" class="d-inline-block">
+    {% csrf_token %}
+    <input type="hidden" value="{{ d }}" name="pdf"/>
+    <input type="submit" class="btn btn-primary mr-2" value="EXPORT TO PDF"/>
+</form>
+
+<form action="/myapp/generatedocument/" method="post" class="d-inline-block">
+    {% csrf_token %}
+    <input type="hidden" value="{{ d }}" name="document"/>
+    <input type="submit" class="btn btn-primary mr-2" value="EXPORT TO DOCUMENT"/>
+</form>
+
+<form action="/myapp/generatevoice/" method="post" class="d-inline-block">
+    {% csrf_token %}
+    <input type="hidden" value="{{ d }}" name="voice"/>
+    <input type="submit" class="btn btn-primary mr-2" value="EXPORT TO VOICE"/>
+</form>
+</div>
+
+
+</center>
+	<script src="/static/viewregusers/js/jquery.min.js"></script>
+  <script src="/static/viewregusers/js/popper.js"></script>
+  <script src="/static/viewregusers/js/bootstrap.min.js"></script>
+  <script src="/static/viewregusers/js/main.js"></script>
+
+	</body>
+</html>
+

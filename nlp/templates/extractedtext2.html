@@ -1,0 +1,100 @@
+{#<!doctype html>#}
+<html lang="en">
+  <head>
+  	<title>Extracted Text</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="/static/viewregusers/css/style.css">
+
+	</head>
+  <body>
+  <header>
+    <div style="background-color: darkblue; color: white; padding: 10px;">
+        <h1 style="color: white; display: flex; justify-content: space-between; align-items: center;">
+            <b>EASY LEARN</b>
+            <a href="/myapp/home/" style="color: white; text-decoration: none;">
+                <button style="background-color: white; padding: 5px 10px; font-size: 12px; color: blue" class="btn btn-primary"><b>Logout</b></button>
+            </a>
+        </h1>
+    </div>
+</header>
+
+     <br>
+
+
+  <center>
+{#      <h3><b>EXTRACTED TEXT</b></h3>#}
+      <br>
+      <br>
+      <table>
+      <tr>
+          <td style="color: black"><b><u>Extracted Text</u></b></td><br>
+      </tr>
+      </table>
+    <form action="/submit-text" method="post">
+        <table class="table table-striped">
+      <tr>
+{#          <td style="color: black"><b><u>Extracted Text</u></b></td><br><br>#}
+
+    <td style="font-size: 16px">{{ s }}</td><br><br>
+
+  </tr>
+            </table>
+            </form>
+
+      <br>
+
+        <br>
+
+{#        <a href="/myapp/summary1/">TEXT SUMMARIZATION</a><br>#}
+{#        <a href="qa1.html/">QUESTION AND ANSWER GENERATION</a>#}
+
+</center>
+  <center>
+ <div class="text-center">
+        <form action="/myapp/keywordandwiki1/" method="post" class="d-inline-block">
+          {% csrf_token %}
+          <input type="hidden" value="{{ s }}" name="wc"/>
+          <button type="submit" class="btn btn-primary mr-2">Extract Keyword</button>
+        </form>
+        <form action="/myapp/summary1/" method="post" class="d-inline-block">
+          {% csrf_token %}
+          <input type="hidden" value="{{ s }}" name="ts"/>
+          <button type="submit" class="btn btn-primary mr-2">Summarize</button>
+        </form>
+        <form action="/myapp/qa1/" method="post" class="d-inline-block">
+          {% csrf_token %}
+          <input type="hidden" value="{{ s }}" name="qa"/>
+          <button type="submit" class="btn btn-primary">Question and Answer Generation</button>
+        </form>
+      </div>
+      <div class="text-center">
+{#        <form action="/myapp/generatepdff/" method="post" class="d-inline-block">#}
+{#          {% csrf_token %}#}
+{#          <input type="hidden" value="{{ s }}" name="ppddff"/>#}
+{#          <button type="submit" class="btn btn-primary mr-2">Export to PDF</button>#}
+{#        </form>#}
+{#        <form action="/myapp/generatedocumentt/" method="post" class="d-inline-block">#}
+{#          {% csrf_token %}#}
+{#          <input type="hidden" value="{{ s }}" name="ddoocc"/>#}
+{#          <button type="submit" class="btn btn-primary mr-2">Export to document</button>#}
+{#        </form>#}
+        <form action="/myapp/generatevoicee/" method="post" class="d-inline-block">
+          {% csrf_token %}
+          <input type="hidden" value="{{ s }}" name="vvooiiccee"/>
+          <button type="submit" class="btn btn-primary">Export to voice</button>
+        </form>
+      </div>
+  </center>
+	<script src="/static/viewregusers/js/jquery.min.js"></script>
+  <script src="/static/viewregusers/js/popper.js"></script>
+  <script src="/static/viewregusers/js/bootstrap.min.js"></script>
+  <script src="/static/viewregusers/js/main.js"></script>
+	</body>
+</html>
+

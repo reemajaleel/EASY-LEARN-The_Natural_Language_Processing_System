@@ -1,0 +1,75 @@
+{#<!doctype html>#}
+<html lang="en">
+  <head>
+  	<title>Registered Users</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="/static/viewregusers/css/style.css">
+
+	</head>
+	<body>
+    <header>
+    <div style="background-color: darkblue; color: white; padding: 10px;">
+        <h1 style="color: white; display: flex; justify-content: space-between; align-items: center;">
+            <b>EASY LEARN</b>
+            <a href="/myapp/home/" style="color: white; text-decoration: none;">
+                <button style="background-color: white; padding: 5px 10px; font-size: 12px; color: blue" class="btn btn-primary"><b>Logout</b></button>
+            </a>
+        </h1>
+    </div>
+</header>
+
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section"><b>REGISTERED USERS</b></h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap" style="height: 400px; overflow-y: scroll;">
+						<table class="table">
+						  <thead class="thead-primary">
+						    <tr>
+						      <th>Sl no.</th>
+						      <th>First Name</th>
+						      <th>Last Name</th>
+                                <th>Date of Birth</th>
+						      <th>Email Address</th>
+                                <th>Phone Number</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+                          {% for i in data %}
+						    <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ i.fname }}</td>
+                            <td>{{ i.lname }}</td>
+                            <td>{{ i.dob }}</td>
+                            <td>{{ i.email }}</td>
+                            <td>{{ i.phone }}</td>
+
+                            </tr>
+                          {% endfor %}
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="/static/viewregusers/js/jquery.min.js"></script>
+  <script src="/static/viewregusers/js/popper.js"></script>
+  <script src="/static/viewregusers/js/bootstrap.min.js"></script>
+  <script src="/static/viewregusers/js/main.js"></script>
+
+	</body>
+</html>
+

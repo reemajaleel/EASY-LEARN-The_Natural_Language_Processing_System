@@ -1,0 +1,74 @@
+{#<!doctype html>#}
+<html lang="en">
+  <head>
+  	<title>Upload Voice</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+	
+	<link rel="stylesheet" href="/static/viewregusers/css/style.css">
+
+	</head>
+  <body>
+  <center>
+      <h3><b>UPLOAD VOICE</b></h3>
+      <br>
+      <br>
+
+      <button id="startButton">Start Recording</button>
+    <button id="stopButton">Stop Recording</button>
+    <br><br>
+
+    <textarea required style="width: 90%; height: 190px; resize: both; id="result"></textarea>
+          <script>
+        var startButton = document.getElementById('startButton');
+        var stopButton = document.getElementById('stopButton');
+        var result = document.getElementById('result');
+        var stream;
+        var recorder;
+
+        startButton.addEventListener('click', function() {
+            navigator.mediaDevices.getUserMedia({ audio: true })
+            .then(function (audioStream) {
+                stream = audioStream;
+                recorder = new Recorder(stream);
+                recorder.record();
+            });
+        });
+
+        stopButton.addEventListener('click', function() {
+            recorder.stop();
+            stream.getAudioTracks()[0].stop();
+            recorder.exportWAV(function(blob) {
+                var formData = new FormData();
+                formData.append('audio_data', blob);
+                $.ajax({
+                    type: 'POST',
+                    url: '/uploadvoice1/',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function(data) {
+                        result.value = data.text;
+                    }
+                });
+            });
+        });
+
+    </script>
+
+
+
+  </center>
+  <br><br><br>
+  <center> <button onclick="extractText()">Next</button></center>
+	<script src="/static/viewregusers/js/jquery.min.js"></script>
+  <script src="/static/viewregusers/js/popper.js"></script>
+  <script src="/static/viewregusers/js/bootstrap.min.js"></script>
+  <script src="/static/viewregusers/js/main.js"></script>
+
+	</body>
+</html>
+
